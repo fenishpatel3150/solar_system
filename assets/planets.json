@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Mercury",
+    "description": "Smallest planet, closest to the Sun",
+    "diameter": 4879,
+    "distance_from_sun": 57910000,
+    "moons": 0,
+    "average_orbital_speed": 47.87,
+    "satellites": 2,
+    "surface_area": 74800000,
+    "rotation_period": 1407.6,
+    "image": "assets/image/mercury.png"
+  },
+  {
+    "name": "Venus",
+    "description": "Hottest planet, similar size to Earth",
+    "diameter": 12104,
+    "distance_from_sun": 108200000,
+    "moons": 0,
+    "average_orbital_speed": 35.02,
+    "satellites": 5,
+    "surface_area": 460200000,
+    "rotation_period": -5832.5,
+    "image": "assets/image/venus.png"
+  },
+  {
+    "name": "Earth",
+    "description": "Home planet, only planet with known life",
+    "diameter": 12742,
+    "distance_from_sun": 149600000,
+    "moons": 1,
+    "average_orbital_speed": 29.78,
+    "satellites": 1,
+    "surface_area": 510100000,
+    "rotation_period": 23.9,
+    "image": "assets/image/earth.png"
+  },
+  {
+    "name": "Mars",
+    "description": "Red planet, potential for future human colonization",
+    "diameter": 6779,
+    "distance_from_sun": 227900000,
+    "moons": 2,
+    "average_orbital_speed": 24.07,
+    "satellites": 2,
+    "surface_area": 144800000,
+    "rotation_period": 24.6,
+    "image": "assets/image/mars.png"
+  },
+  {
+    "name": "Jupiter",
+    "description": "Largest planet, gas giant with Great Red Spot",
+    "diameter": 139820,
+    "distance_from_sun": 778500000,
+    "moons": 79,
+    "average_orbital_speed": 13.07,
+    "satellites": 4,
+    "surface_area": 61420000000,
+    "rotation_period": 9.9,
+    "image": "assets/image/jupiter.png"
+  },
+  {
+    "name": "Saturn",
+    "description": "Gas giant known for its prominent ring system",
+    "diameter": 116460,
+    "distance_from_sun": 1434000000,
+    "moons": 83,
+    "average_orbital_speed": 9.69,
+    "satellites": 4,
+    "surface_area": 42700000000,
+    "rotation_period": 10.7,
+    "image": "assets/image/saturn.png"
+  },
+  {
+    "name": "Uranus",
+    "description": "Ice giant with a tilted rotation axis",
+    "diameter": 50724,
+    "distance_from_sun": 2871000000,
+    "moons": 27,
+    "average_orbital_speed": 6.81,
+    "satellites": 6,
+    "surface_area": 8083000000,
+    "rotation_period": -17.2,
+    "image": "assets/image/uranus.png"
+  },
+  {
+    "name": "Neptune",
+    "description": "Ice giant, known for strong winds and storms",
+    "diameter": 49244,
+    "distance_from_sun": 4495000000,
+    "moons": 14,
+    "average_orbital_speed": 5.43,
+    "satellites": 5,
+    "surface_area": 7618000000,
+    "rotation_period": 16.1,
+    "image": "assets/image/neptune.png"
+  }
+]
+
