@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:solar_system/Controller/PlanetController.dart';
 
-Widget PlanetData(PlanetProvider provider,String data,String name,IconData iconData) {
+Widget PlanetData(PlanetProvider provider,String data,String name,IconData iconData, double height,double width) {
   return Center(
     child: Container(
-      height: 60,
-      width: 330,
+      height: height/15,
+      width: width/1.1,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
         color: Colors.white10,

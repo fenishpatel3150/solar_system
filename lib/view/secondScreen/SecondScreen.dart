@@ -17,6 +17,9 @@ class _SecondScreenState extends State<SecondScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -63,14 +66,14 @@ class _SecondScreenState extends State<SecondScreen>
                           image: AssetImage('assets/image/star.jpeg'),
                           fit: BoxFit.cover)),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 250,
-                        width: 250,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                        ),
-                        child: animation(provider, planetindex),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: SizedBox(
+                            height: 250,
+                            width: 250
+                            ,child: animation(provider, planetindex)),
                       ),
                       Text(
                         'Distance From Sun',
@@ -87,7 +90,7 @@ class _SecondScreenState extends State<SecondScreen>
                   height: 20,
                 ),
                 Container(
-                  height: 380,
+                  height: height/1,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xff000000),
@@ -116,19 +119,19 @@ class _SecondScreenState extends State<SecondScreen>
                       SizedBox(
                         height: 15,
                       ),
-                      PlanetData(provider,"${provider.planets[planetindex].averageOrbitalSpeed}km/s",'Average orbital speed',Icons.av_timer),
+                      PlanetData(provider,"${provider.planets[planetindex].averageOrbitalSpeed}km/s",'Average orbital speed',Icons.av_timer,height, width),
                       SizedBox(
                         height: 15,
                       ),
-                      PlanetData(provider,"${provider.planets[planetindex].satellites}",'Satellites',Icons.satellite_alt),
+                      PlanetData(provider,"${provider.planets[planetindex].satellites}",'Satellites',Icons.satellite_alt,height,width),
                       SizedBox(
                         height: 15,
                       ),
-                      PlanetData(provider,"${provider.planets[planetindex].surfaceArea} km2",'Surface area',Icons.rocket_launch),
+                      PlanetData(provider,"${provider.planets[planetindex].surfaceArea} km2",'Surface area',Icons.rocket_launch,height,width),
                       SizedBox(
                         height: 15,
                       ),
-                      PlanetData(provider,"${provider.planets[planetindex].rotationPeriod}d",'Rotation period',Icons.rotate_right),
+                      PlanetData(provider,"${provider.planets[planetindex].rotationPeriod}d",'Rotation period',Icons.rotate_right ,height,width),
                     ],
                   ),
                 )

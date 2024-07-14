@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:solar_system/view/HomeScreen/HomeScreen.dart';
-import 'package:solar_system/view/HomeScreen/componets/PlanetDeatils.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -21,21 +20,24 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Navigate to next screen after 3 seconds (adjust duration as needed)
-    Timer(Duration(seconds: 10), () {
+    Timer(Duration(seconds: 9), () {
       Navigator.of(context).push(CustomPageRoute());
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 785,
-            width: 350,
+            height:height/1.0 ,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
@@ -46,22 +48,31 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Center(
               child: AnimatedTextKit(
                 animatedTexts: [
-                  ColorizeAnimatedText(
+
+                  TyperAnimatedText(
                     'Planets',
-                    textStyle: GoogleFonts.fahkwang(
-                      fontSize: 50.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    colors: [
-                      Colors.white,
-                      Colors.blue,
-                      Colors.white,
-                    ],
-                    speed: Duration(milliseconds: 2000),
+                          speed: Duration(milliseconds: 1200),
+                          textStyle: GoogleFonts.fahkwang(
+                            color: Colors.white,
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.bold,
+                          )
                   ),
+              //
+              //     ColorizeAnimatedText(
+              //       'Planets',
+              //       textStyle: GoogleFonts.fahkwang(
+              //         fontSize: 50.0,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //       textDirection:TextDirection.rtl,
+              //       speed: Duration(milliseconds: 2000), colors: [
+              //         Colors.white,
+              // ],
+              //     ),
                 ],
                 totalRepeatCount: 2,
-                pause: Duration(milliseconds: 1000),
+                pause: Duration(milliseconds: 500),
                 displayFullTextOnTap: true,
                 stopPauseOnTap: true,
               ),
@@ -104,7 +115,7 @@ class CustomPageRoute extends PageRouteBuilder {
       ).animate(animation);
 
       return SlideTransition(
-        position: animation.status == AnimationStatus.reverse
+        position: animation.status == AnimationStatus.dismissed
             ? reverseAnimation
             : forwardAnimation,
         child: child,
