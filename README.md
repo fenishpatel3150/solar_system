@@ -89,9 +89,12 @@ This example demonstrates a basic use of animation with AnimatedContainer in Flu
 <img src = "https://github.com/user-attachments/assets/57f5cdbd-24a3-428d-a582-05874b403f94" width=22% height=35%>
 
 
-https://github.com/user-attachments/assets/84264ea2-e70c-4da2-acbb-33cf3abec712
 
 
+
+
+
+https://github.com/user-attachments/assets/0e7ffcba-0fa0-4f67-8130-edc55da60a69
 
 
 
