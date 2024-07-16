@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:solar_system/Controller/PlanetController.dart';
 import 'package:solar_system/view/HomeScreen/componets/Animation.dart';
+import 'package:solar_system/view/favorite/FavoriteScreen.dart';
 import 'package:solar_system/view/secondScreen/SecondScreen.dart';
 import 'package:solar_system/view/secondScreen/componets/animationPageRoute.dart';
 
@@ -35,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -43,10 +43,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: const Color(0xff000000),
         leading: Padding(
-          padding:  EdgeInsets.only(left: 15),
+          padding: EdgeInsets.only(left: 15),
           child: Container(
-            height: height/2,
-            width: width/5,
+            height: height / 2,
+            width: width / 5,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: const DecorationImage(
@@ -54,106 +54,242 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
         ),
-        title: Center(
-          child: Text(
-            'Planets',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          'Hey ! ',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
           ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Icon(
-              CupertinoIcons.rectangle_grid_2x2_fill,
+              CupertinoIcons.search,
               color: Colors.white,
               size: 25,
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(CustomPageRoutelike());
+              },
+              icon: Icon(
+                CupertinoIcons.heart,
+                color: Colors.white,
+                size: 25,
+              ),
+            ),
+          ),
         ],
       ),
       body: Consumer<PlanetProvider>(
         builder: (BuildContext context, PlanetProvider value, Widget? child) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: height/4.2,
-                width: width/1.1,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade500,),
-                    image: DecorationImage(image: AssetImage('assets/image/banner.jpeg'),fit: BoxFit.cover), borderRadius: BorderRadius.circular(10)),
+              Column(
+                children: [
+                  Text(
+                    'Your personal       ',
+                    style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 45,
+                        fontWeight: FontWeight.w200),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        ' guide',
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 45,
+                            fontWeight: FontWeight.w200),
+                      ),
+                      Text(
+                        ' to the',
+                        style: GoogleFonts.roboto(
+                            color: Colors.grey,
+                            fontSize: 45,
+                            fontWeight: FontWeight.w200),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'universe                ',
+                    style: GoogleFonts.roboto(
+                        color: Colors.grey,
+                        fontSize: 45,
+                        fontWeight: FontWeight.w200),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 20,
               ),
               Expanded(
-                child: GridView.builder(
-                    itemCount: Provider.of<PlanetProvider>(context).planets.length,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
-                    itemBuilder: (context, index) => Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        height: height/1.5,
-                        width: width/2,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade600),
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white10
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                child: ListView.builder(
+                  itemCount:
+                      Provider.of<PlanetProvider>(context).planets.length,
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 5,),
-                            GestureDetector(
-                                onTap: ()
-                                {
-                                  Navigator.of(context).push(CustomPageRoute());
-                                  planetindex = index;
-                                },
-                                child: animation(value, index)),
-                            SizedBox(height: 10,),
-                            Divider(
-                              color: Colors.white,
-                              thickness: 0.2,
-                              indent: 15,
-                              endIndent: 15,
+                            Container(
+                              height: 250,
+                              width: 250,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                // border: Border.all(color: Colors.grey),
+                              ),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(CustomPageRoute());
+                                    planetindex = index;
+                                  },
+                                  child: animation(value, index)),
                             ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Text('${value.planets[index].name}',
-                                    style: GoogleFonts.roboto(color: Colors.white,
-                                        fontSize: 15),),
-                                ),
-                                Spacer(),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: Text('${value.planets[index].rotationPeriod}',
-                                    style: GoogleFonts.roboto(color: Colors.grey,
-                                        fontSize: 10),),
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15, top: 5),
+                              child: Text(
+                                '${value.planets[index].name}',
+                                style: GoogleFonts.roboto(
+                                    color: Colors.white, fontSize: 22),
+                              ),
                             ),
-
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                '${value.planets[index].description}',
+                                style: GoogleFonts.roboto(
+                                    color: Colors.grey, fontSize: 8),
+                              ),
+                            ),
                           ],
                         ),
-
-                      ),
+                      ],
                     ),
+                  ),
                 ),
               ),
-
+              Column(
+                children: [
+                  Divider(
+                    color: Colors.grey.shade800,
+                    indent: 10,
+                    endIndent: 10,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Distance from sun',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Spacer(),
+                      Text(
+                        '${value.planets[planetindex].distanceFromSun}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Colors.grey.shade800,
+                    indent: 10,
+                    endIndent: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'moons',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Spacer(),
+                      Text(
+                        '${value.planets[planetindex].moons}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Colors.grey.shade800,
+                    indent: 10,
+                    endIndent: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'average orbital speed',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Spacer(),
+                      Text(
+                        '${value.planets[planetindex].averageOrbitalSpeed}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Colors.grey.shade800,
+                    indent: 10,
+                    endIndent: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'satellites',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      Spacer(),
+                      Text(
+                        '${value.planets[planetindex].satellites}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  )
+                ],
+              )
             ],
           );
         },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:solar_system/Controller/PlanetController.dart';
+import 'package:solar_system/Controller/likeController.dart';
 import 'package:solar_system/view/HomeScreen/componets/Animation.dart';
 import 'package:solar_system/view/secondScreen/componets/PlanetData.dart';
 
@@ -44,10 +45,15 @@ class _SecondScreenState extends State<SecondScreen>
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
-            child: Icon(
-              CupertinoIcons.heart,
-              color: Colors.white,
-              size: 30,
+            child: IconButton(
+              onPressed: () {
+                Provider.of<LikeController>(context,listen: false).addData();
+              },
+              icon:  Icon(
+                CupertinoIcons.heart,
+                color: Colors.white,
+                size: 30,
+              ),
             ),
           ),
         ],
@@ -90,7 +96,7 @@ class _SecondScreenState extends State<SecondScreen>
                   height: 20,
                 ),
                 Container(
-                  height: height/1,
+                  height: height/2,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xff000000),

@@ -20,24 +20,21 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Navigate to next screen after 3 seconds (adjust duration as needed)
-    Timer(Duration(seconds: 9), () {
+    Timer(Duration(seconds: 10), () {
       Navigator.of(context).push(CustomPageRoute());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height:height/1.0 ,
-            width: double.infinity,
+            height: 785,
+            width: 350,
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
@@ -48,31 +45,23 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Center(
               child: AnimatedTextKit(
                 animatedTexts: [
-
-                  TyperAnimatedText(
+                  ColorizeAnimatedText(
                     'Planets',
-                          speed: Duration(milliseconds: 1200),
-                          textStyle: GoogleFonts.fahkwang(
-                            color: Colors.white,
-                            fontSize: 50.0,
-                            fontWeight: FontWeight.bold,
-                          )
+                    textStyle: GoogleFonts.fahkwang(
+                      fontSize: 50.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    colors: [
+                      Colors.white,
+                      Colors.blue,
+                      Colors.white,
+                    ],
+                    textAlign: TextAlign.end,
+                    speed: Duration(milliseconds: 2000),
                   ),
-              //
-              //     ColorizeAnimatedText(
-              //       'Planets',
-              //       textStyle: GoogleFonts.fahkwang(
-              //         fontSize: 50.0,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //       textDirection:TextDirection.rtl,
-              //       speed: Duration(milliseconds: 2000), colors: [
-              //         Colors.white,
-              // ],
-              //     ),
                 ],
                 totalRepeatCount: 2,
-                pause: Duration(milliseconds: 500),
+                pause: Duration(milliseconds: 1000),
                 displayFullTextOnTap: true,
                 stopPauseOnTap: true,
               ),
@@ -115,7 +104,7 @@ class CustomPageRoute extends PageRouteBuilder {
       ).animate(animation);
 
       return SlideTransition(
-        position: animation.status == AnimationStatus.dismissed
+        position: animation.status == AnimationStatus.reverse
             ? reverseAnimation
             : forwardAnimation,
         child: child,

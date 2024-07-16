@@ -1,4 +1,5 @@
 class Planet {
+  int id;
    String name;
    String description;
    int diameter;
@@ -11,6 +12,7 @@ class Planet {
    String image;
 
   Planet({
+    required this.id,
     required this.name,
     required this.description,
     required this.diameter,
@@ -25,6 +27,7 @@ class Planet {
 
   factory Planet.fromJson(Map json) {
     return Planet(
+      id: json['id'],
       name: json['name'],
       description: json['description'],
       diameter: json['diameter'],

@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Mercury",
     "description": "Smallest planet, closest to the Sun",
     "diameter": 4879,
@@ -12,6 +13,7 @@
     "image": "assets/image/mercury.png"
   },
   {
+    "id": 2,
     "name": "Venus",
     "description": "Hottest planet, similar size to Earth",
     "diameter": 12104,
@@ -24,6 +26,7 @@
     "image": "assets/image/venus.png"
   },
   {
+    "id": 3,
     "name": "Earth",
     "description": "Home planet, only planet with known life",
     "diameter": 12742,
@@ -36,6 +39,7 @@
     "image": "assets/image/earth.png"
   },
   {
+    "id": 4,
     "name": "Mars",
     "description": "Red planet, potential for future human colonization",
     "diameter": 6779,
@@ -48,6 +52,7 @@
     "image": "assets/image/mars.png"
   },
   {
+    "id": 5,
     "name": "Jupiter",
     "description": "Largest planet, gas giant with Great Red Spot",
     "diameter": 139820,
@@ -60,6 +65,7 @@
     "image": "assets/image/jupiter.png"
   },
   {
+    "id": 6,
     "name": "Saturn",
     "description": "Gas giant known for its prominent ring system",
     "diameter": 116460,
@@ -72,6 +78,7 @@
     "image": "assets/image/saturn.png"
   },
   {
+    "id": 7,
     "name": "Uranus",
     "description": "Ice giant with a tilted rotation axis",
     "diameter": 50724,
@@ -84,6 +91,7 @@
     "image": "assets/image/uranus.png"
   },
   {
+    "id": 8,
     "name": "Neptune",
     "description": "Ice giant, known for strong winds and storms",
     "diameter": 49244,
